@@ -2,18 +2,17 @@ import { Controller, Get, Post, Body } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
 
-
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  async getAll(): Promise<User[]> {
+  getAll(): any {
     return this.userService.findAll();
   }
 
   @Post()
-  async create(@Body() user: Partial<User>): Promise<User> {
+  create(@Body() user: any): any {
     return this.userService.create(user);
   }
 }

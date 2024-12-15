@@ -10,11 +10,15 @@ export class UserService {
     private userRepository: Repository<User>,
   ) {}
 
-  findAll(): Promise<User[]> {
-    return this.userRepository.find();
+  findAll(): any {
+    return {
+      name: 'John Kerlin Silvestre',
+    };
   }
 
-  create(user: Partial<User>): Promise<User> {
-    return this.userRepository.save(user);
+  create(user: any): any {
+    return {
+      status: `user ${user} has created`,
+    };
   }
 }
